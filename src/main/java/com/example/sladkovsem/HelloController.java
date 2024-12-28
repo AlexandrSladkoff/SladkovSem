@@ -43,9 +43,7 @@ public class HelloController implements Initializable {
     String []items ={"","","",""};
 
     public List<String> SEARCH(String ciTY){
-        Gson gson = new GsonBuilder().setPrettyPrinting()
-                .excludeFieldsWithoutExposeAnnotation()
-                .create();
+        Gson gson = new Gson();
         List<CITY> cities = null;
         try {
             String apiKey = "28349b697c86b2e25d3beea6beff59cd";
@@ -62,6 +60,8 @@ public class HelloController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
         return cities.stream().map(CITY::getName).collect(Collectors.toList());
     }
 
@@ -85,7 +85,8 @@ void loadItems(ActionEvent event){}
     }
 }
 
-class LocalName{  String tag; String cityname;}
+class LocalName{  String tag; String cityname;
+}
 class CITY{
      String name;
      List<LocalName> local_name;
@@ -97,4 +98,5 @@ class CITY{
         this.name = name ; this.local_name= local_name; this.lat=lat; this.lon=lon; this.country=country; this.state=state;
     }
     public String getName() {return name;}
+
 }

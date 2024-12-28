@@ -3,6 +3,6 @@ module com.example.sladkovsem {
     requires javafx.fxml;
 
     requires com.google.gson;
-    opens com.example.sladkovsem to javafx.fxml;
+    opens com.example.sladkovsem to com.google.gson, javafx.fxml;
     exports com.example.sladkovsem;
 }
