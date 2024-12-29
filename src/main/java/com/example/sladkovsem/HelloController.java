@@ -70,17 +70,23 @@ void loadItems(ActionEvent event){}
     @Override
     public void initialize(URL url2, ResourceBundle resourceBundle) {
         mainBox.getItems().addAll(items);
-        mainBox.setOnAction(actionEvent -> {String data =  mainBox.getSelectionModel().getSelectedItem().toString();TEMP.setText(data);});
+        Boolean flag = true;
+        mainBox.setOnAction( actionEvent -> {
+            String data =  mainBox.getSelectionModel().getSelectedItem().toString();
+            TEMP.setText(data);
+
+
+        });
 
         mainBox.getEditor().textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String old, String newv) {
                 List<String> list = SEARCH(newv);
-                String []r ={list.get(0),list.get(1),list.get(2),list.get(3)};
                 System.out.println(list);
                 mainBox.getItems().clear();
-                mainBox.getItems().addAll(r);
+                mainBox.getItems().addAll(list);
             }
+
         });
     }
 }
