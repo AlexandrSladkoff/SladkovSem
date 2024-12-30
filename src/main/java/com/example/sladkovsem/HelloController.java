@@ -71,7 +71,6 @@ void loadItems(ActionEvent event){}
     public void initialize(URL url2, ResourceBundle resourceBundle) {
         mainBox.getItems().addAll(items);
         mainBox.setOnAction( actionEvent -> {
-
             String data =  mainBox.getSelectionModel().getSelectedItem().toString();
             TEMP.setText(data);
             Gson gson = new Gson();
@@ -94,7 +93,29 @@ void loadItems(ActionEvent event){}
             }
 
         });
+        mainBox.setOnMouseClicked( actionEvent -> {
+            String data =  mainBox.getSelectionModel().getSelectedItem().toString();
+            TEMP.setText(data);
+            Gson gson = new Gson();
+            List<CITY> cities1 = null;
+            try {
+                String apiKey = "28349b697c86b2e25d3beea6beff59cd";
+                String apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + data + "&limit=1&appid=" + apiKey + "&units=metric";
+                URL url = new URL(apiUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                Type citieslistTYPE = new TypeToken<List<CITY>>(){}.getType();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                cities1 = gson.fromJson(reader,citieslistTYPE);
+                reader.close();
+                List<Double> LAT = cities1.stream().map(CITY::getLAT).collect(Collectors.toList());
+                List<Double> LON = cities1.stream().map(CITY::getLON).collect(Collectors.toList());
+                System.out.println(LAT);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
+        });
         mainBox.getEditor().textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String old, String newv) {
