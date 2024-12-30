@@ -8,13 +8,13 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sladkovsem.HelloController">
    <children>
       <ComboBox fx:id="mainBox" editable="true" layoutX="225.0" layoutY="94.0" prefHeight="17.0" prefWidth="150.0" />
-      <Label fx:id="TEMP" layoutX="89.0" layoutY="158.0" text="Label" />
-      <Label fx:id="F_L" layoutX="89.0" layoutY="212.0" text="Label" />
-      <Label fx:id="TEMPmin" layoutX="89.0" layoutY="264.0" text="Label" />
-      <Label fx:id="TEMPmax" layoutX="89.0" layoutY="320.0" text="Label" />
-      <Label fx:id="PR" layoutX="400.0" layoutY="158.0" text="Label" />
-      <Label fx:id="HY" layoutX="400.0" layoutY="212.0" text="Label" />
-      <Label fx:id="SPEED" layoutX="400.0" layoutY="264.0" text="Label" />
-      <Label fx:id="DEG" layoutX="400.0" layoutY="320.0" text="Label" />
+      <Label fx:id="TEMP" layoutX="89.0" layoutY="158.0" text="" />
+      <Label fx:id="F_L" layoutX="89.0" layoutY="212.0" text="" />
+      <Label fx:id="TEMPmin" layoutX="89.0" layoutY="264.0" text="" />
+      <Label fx:id="TEMPmax" layoutX="89.0" layoutY="320.0" text="" />
+      <Label fx:id="PR" layoutX="400.0" layoutY="158.0" text="" />
+      <Label fx:id="HY" layoutX="400.0" layoutY="212.0" text="" />
+      <Label fx:id="SPEED" layoutX="400.0" layoutY="264.0" text="" />
+      <Label fx:id="DEG" layoutX="400.0" layoutY="320.0" text="" />
    </children>
 </AnchorPane>
